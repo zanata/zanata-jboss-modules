@@ -9,6 +9,7 @@ formatted log files.
 Usage
 -----
 
+Setting up JSON logging:
 1. Extract zanata-jboss-modules-$version.zip to your jboss-eap directory.
 2. Configure jboss to use Logstash format by editing the following into
    your standalone(-full).xml:
@@ -29,9 +30,22 @@ Usage
         </formatter>
 
 
+To run Logstash (and Elasticsearch) against your logs:
+1. Download and extract version 1.5.4: https://www.elastic.co/downloads/logstash
+2. copy in [logstash.conf](etc/logstash.conf)
+3. edit the path to your json log file
+4. run logstash: bin/logstash agent --verbose -f logstash.conf --debug
+
+
+Finally, to run Kibana against Elasticsearch:
+1. Download and extract kibana 4.1.1: https://www.elastic.co/downloads/kibana
+2. Run bin/kibana
+3. Launch http://0.0.0.0:5601/
+
+
 Links
 -----
-
+* [Centralized Logging for WildFly with the ELK Stack](http://wildfly.org/news/2015/07/25/Wildfly-And-ELK/)
 * [jboss-logmanager-ext](https://github.com/jamezp/jboss-logmanager-ext)
 * [JSON Processing](https://jsonp.java.net/)
 
