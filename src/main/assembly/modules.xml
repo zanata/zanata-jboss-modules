@@ -9,18 +9,26 @@
   <fileSets>
     <fileSet>
       <directory>${project.basedir}/src/main/modules</directory>
-      <outputDirectory>/modules</outputDirectory>
+      <outputDirectory>modules</outputDirectory>
       <filtered>true</filtered>
     </fileSet>
   </fileSets>
   <dependencySets>
     <dependencySet>
-      <outputDirectory>/modules/system/layers/base/org/glassfish/javax/json/main</outputDirectory>
+      <outputDirectory>modules/org/glassfish/javax/json/main</outputDirectory>
       <includes>
         <include>org.glassfish:javax.json</include>
       </includes>
       <useTransitiveDependencies>false</useTransitiveDependencies>
-      <useProjectArtifact>true</useProjectArtifact>
+      <useProjectArtifact>false</useProjectArtifact>
+    </dependencySet>
+    <dependencySet>
+      <outputDirectory>modules/org/jboss/logmanager/ext/main</outputDirectory>
+      <includes>
+        <include>org.jboss.logmanager:jboss-logmanager-ext</include>
+      </includes>
+      <useTransitiveDependencies>false</useTransitiveDependencies>
+      <useProjectArtifact>false</useProjectArtifact>
     </dependencySet>
   </dependencySets>
 </assembly>

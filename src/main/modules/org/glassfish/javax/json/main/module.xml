@@ -31,7 +31,6 @@
     <dependencies>
     </dependencies>
     <resources>
-        <resource-root path="javax.json-1.0.3.jar"/>
-        <!-- Insert resources here -->
+        <resource-root path="javax.json-${glassfish-json-version}.jar"/>
     </resources>
 </module>

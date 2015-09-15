@@ -1,48 +1,36 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
-    <groupId>org.dcm4che.dcm4chee-arc</groupId>
-    <artifactId>dcm4chee-arc-parent</artifactId>
-    <version>4.5.0-SNAPSHOT</version>
+    <groupId>org.zanata</groupId>
+    <artifactId>zanata-parent</artifactId>
+    <version>25-SNAPSHOT</version>
+    <relativePath></relativePath>
   </parent>
-  <artifactId>json-jboss-modules</artifactId>
+  <artifactId>zanata-jboss-modules</artifactId>
+  <version>1.0-SNAPSHOT</version>
   <packaging>pom</packaging>
-  <distributionManagement>
-    <repository>
-      <id>www.dcm4che.org</id>
-      <name>dcm4che Repository</name>
-      <url>scp://www.dcm4che.org:443/home/maven2</url>
-    </repository>
-  </distributionManagement>
   <properties>
+    <glassfish-json-version>1.0.4</glassfish-json-version>
+    <logmanager-ext-version>1.0.0.Alpha3</logmanager-ext-version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
   <dependencies>
     <dependency>
       <groupId>org.glassfish</groupId>
       <artifactId>javax.json</artifactId>
-      <version>1.0.3</version>
+      <version>${glassfish-json-version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.jboss.logmanager</groupId>
+      <artifactId>jboss-logmanager-ext</artifactId>
+      <version>${logmanager-ext-version}</version>
     </dependency>
   </dependencies>
-  <repositories>
-    <repository>
-      <id>www.dcm4che.org</id>
-      <name>dcm4che Repository</name>
-      <url>http://www.dcm4che.org/maven2</url>
-    </repository>
-  </repositories>
   <build>
-    <extensions>
-      <extension>
-         <groupId>org.apache.maven.wagon</groupId>
-         <artifactId>wagon-ssh</artifactId>
-         <version>2.2</version>
-      </extension>
-    </extensions>
     <plugins>
       <plugin>
         <artifactId>maven-assembly-plugin</artifactId>
-        <version>2.3</version>
+        <version>2.5.5</version>
         <configuration>
           <appendAssemblyId>false</appendAssemblyId>
           <descriptors>
@@ -60,18 +48,4 @@
       </plugin>
     </plugins>
   </build>
-  <profiles>
-    <profile>
-        <id>csp</id>
-        <properties>
-            <hap-repository.url/>
-        </properties>
-        <distributionManagement>
-            <repository>
-                <id>hap-repository</id>
-                <url>${hap-repository.url}</url>
-            </repository>
-        </distributionManagement>
-    </profile>
-  </profiles>
 </project>
